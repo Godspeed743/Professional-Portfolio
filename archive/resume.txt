@@ -1,0 +1,40 @@
+Mohammad Hammad
+mohdhammad743@gmail.com +91 7703823294 Delhi, India
+mohammad-hammad-27a1652a5
+WORK EXPERIENCE
+Data Science & Machine Learning Training | IKIGAI Lab Pvt Ltd (in collaboration with IITM)  
+16th June 2025 - 26th July 2025
+EDUCATION
+GURU GOBIND SINGH INDRAPRASTHA UNIVERSITY
+Bachelor of Computer Applications (BCA) - CGPA : 8.8/10 2023 - 2026
+PROJECTS
+Analyzing Global COVID-19 Trends & Prediction June 2025 - July 2025
+• Collected and cleaned global COVID-19 datasets (WHO, JHU, Kaggle) for analysis.
+• Performed Exploratory Data Analysis (EDA) to uncover patterns in conﬁrmed cases, recoveries, and death 
+rates across countries.
+• Built interactive dashboards using Matplotlib & Power BI to visualize pandemic trends.
+• Implemented Linear Regression model to predict future case growth, achieving reliable forecasting 
+accuracy.
+• Applied feature engineering & clustering techniques to group countries based on infection and recovery 
+patterns.
+Blinking Stars - Full-Stack Healthcare Services Platform January 2025 - March 2025
+• Developed a responsive multi-page web application for a therapy center serving children with special needs.
+• Built modern UI/UX with interactive service showcase, animated cards, and testimonial carousel.
+• Integrated PHP-based backend with MySQL database, automated inquiry system, and WhatsApp API 
+communication.
+• Implemented SEO optimization, accessibility features, and cross-platform compatibility, improving 
+performance and engagement.
+• Delivered a professional platform that streamlined client communication and automated business 
+inquiries.
+• Technologies: HTML5, CSS3, JavaScript, PHP , MySQL, Tailwind CSS, XAMPP
+SKILLS
+• Languages: C, C++, Java, Python  
+• Web: HTML, CSS, JavaScript, PHP
+• Database: MySQL
+• Data Science & ML: Pandas, NumPy, Scikit-learn, Feature Engineering, Data Visualization 
+• Tools & Platforms: Git, GitHub, VS Code, PowerBi, Jupyter Notebook
+CERTIFICATE
+IBM Certiﬁed in Python Programming
+Microsoft Oﬃce Specialist Certiﬁcate for Excel 
+Certiﬁed in Full Stack Development (Frontend & Backend)
+Certiﬁed Training in Data Science & Machine Learning

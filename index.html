@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad Hammad | Portfolio</title>
+    <meta name="theme-color" content="#0a0a0a" id="theme-color-meta">
+    <script>
+        (() => {
+            let theme;
+            try {
+                theme = localStorage.getItem('portfolio-theme');
+            } catch (error) {
+                theme = null;
+            }
+            if (theme !== 'light' && theme !== 'dark') {
+                theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            }
+            document.documentElement.classList.toggle('light-theme', theme === 'light');
+            document.documentElement.dataset.theme = theme;
+            document.getElementById('theme-color-meta').content =
+                theme === 'light' ? '#f5f7fb' : '#0a0a0a';
+        })();
+    </script>
+    <meta name="description"
+        content="Mohammad Hammad's portfolio: Data Science, Machine Learning, and Full-Stack development projects, experience, and education.">
+    <!-- TODO: Replace the canonical placeholder with the deployed site URL. -->
+    <link rel="canonical" href="https://YOUR-DOMAIN.example/">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Mohammad Hammad",
+            "jobTitle": "Data Science and Full-Stack Developer",
+            "url": "https://YOUR-DOMAIN.example/",
+            "image": "https://YOUR-DOMAIN.example/assets/images/hero-portrait.jpeg",
+            "sameAs": [
+                "https://github.com/Godspeed743",
+                "https://linkedin.com/in/mohammad-hammad-27a1652a5"
+            ]
+        }
+    </script>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mohammad Hammad | Portfolio">
+    <meta property="og:url" content="https://YOUR-DOMAIN.example/">
+    <meta property="og:description"
+        content="Data Science and Full-Stack Developer building data-driven digital experiences.">
+    <meta property="og:image" content="https://YOUR-DOMAIN.example/assets/images/hero-portrait.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mohammad Hammad | Portfolio">
+    <meta name="twitter:description"
+        content="Data Science and Full-Stack Developer building data-driven digital experiences.">
+    <meta name="twitter:image" content="https://YOUR-DOMAIN.example/assets/images/hero-portrait.jpeg">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preload" as="image" href="assets/images/hero-portrait.webp" type="image/webp">
+    <noscript>
+        <style>
+            .preloader { display: none !important; }
+            .reveal { opacity: 1 !important; transform: none !important; }
+        </style>
+    </noscript>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700;800&family=Fira+Code:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-theme">
+
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="scroll-progress" id="scroll-progress" role="progressbar"
+        aria-label="Page reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader-content">
+            <div class="bracket-loader"><span class="neon-text">{</span><span class="dot-loader"></span><span
+                    class="neon-text">}</span></div>
+            <p>Initializing Environment...</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="navbar" role="banner">
+        <a href="#home" class="logo">Mohammad Hammad</a>
+        <button class="menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false"
+            aria-controls="primary-nav">
+            <span class="menu-btn__burger" aria-hidden="true"></span>
+        </button>
+        <nav class="nav-links" id="primary-nav" role="navigation" aria-label="Primary navigation">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#certifications" class="nav-link">Certifications</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#contact" class="nav-link">Contact</a>
+            <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to light theme"
+                aria-pressed="false">
+                <i class="fa-solid fa-sun" aria-hidden="true"></i>
+                <span>Light</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main" tabindex="-1">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-bg">
+                <div class="grid-overlay"></div>
+                <div class="glow-sphere sphere-1"></div>
+                <div class="glow-sphere sphere-2"></div>
+            </div>
+
+            <div class="hero-grid">
+                <div class="hero-image-container">
+                    <div class="hero-photo" role="button" tabindex="0" aria-expanded="false"
+                        aria-label="Show my tech stack" aria-controls="hero-orbit-icons">
+                        <picture>
+                            <source srcset="assets/images/hero-portrait.webp" type="image/webp">
+                            <img src="assets/images/hero-portrait.jpeg" alt="Mohammad Hammad" width="800" height="1067"
+                                fetchpriority="high" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="orbit-icons" id="hero-orbit-icons" aria-hidden="true"></div>
+                    <div class="hero-tech-chip" aria-live="polite" aria-atomic="true"></div>
+                    <div class="hero-touch-hint" aria-live="polite">Tap to explore my stack</div>
+                </div>
+                <div class="hero-content">
+                    <p class="greeting">Hello World, I am</p>
+                    <h1 class="name">Mohammad Hammad</h1>
+                    <div class="typing-container"
+                        data-roles="Data Science and ML Enthusiast|Full-Stack Developer|Python Programmer">
+                        <span class="typing-text"></span><span class="cursor">|</span>
+                    </div>
+                    <p class="hero-description">
+                        Data Science & Machine Learning enthusiast with solid Frontend development skills.
+                        Bridging the gap between complex data algorithms and interactive web experiences.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary magnetic" data-strength="20">
+                            <span class="btn-text">View Projects</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-outline magnetic" data-strength="20">
+                            <span class="btn-text">Contact Me</span>
+                        </a>
+                        <a href="Mohammad_Hammad_Resume.pdf" download="Mohammad_Hammad_Resume.pdf" class="btn btn-secondary magnetic" data-strength="20">
+                            <span class="btn-text">Download Resume</span>
+                            <i class="fa-solid fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="scroll-indicator">
+                <p>Scroll to explore</p>
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section-padding reveal">
+            <div class="section-title">
+                <h2><span class="neon-text">01.</span> About Me</h2>
+                <div class="line"></div>
+            </div>
+            <div class="about-container">
+                <div class="about-image-wrapper">
+                    <div class="about-image">
+                        <picture>
+                            <source srcset="assets/images/about-portrait.webp" type="image/webp">
+                            <img src="assets/images/about-portrait.jpeg" alt="Mohammad Hammad, developer portrait"
+                                width="800" height="1029" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>I engineer <span class="highlight">data-driven digital experiences</span>.</h3>
+                    <p>I am a passionate Web Developer and Data Science enthusiast. I love exploring global
+                        trends with Machine Learning and building interactive, pixel-perfect platforms. I'm currently
+                        pursuing my BCA at Guru Gobind Singh Indraprastha University.</p>
+
+                    <div class="terminal-box">
+                        <div class="terminal-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="title">developer_info.json</span>
+                        </div>
+                        <div class="terminal-body">
+                            <pre><code>{
+  <span class="key">"name"</span>: <span class="string">"Mohammad Hammad"</span>,
+  <span class="key">"role"</span>: <span class="string">"Data Science & Full-Stack Developer"</span>,
+  <span class="key">"focus"</span>: [<span class="string">"Machine Learning"</span>, <span class="string">"Data Analysis"</span>, <span class="string">"Web Development"</span>],
+  <span class="key">"education"</span>: <span class="string">"BCA from GGSIPU"</span>,
+  <span class="key">"status"</span>: <span class="string">"Open to work"</span>
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="about-stats" aria-label="Portfolio facts">
+                        <div class="about-stat">
+                            <span class="about-stat-value" data-count="5" data-decimals="0" data-suffix="+">0+</span>
+                            <span class="about-stat-label">Projects</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-value" data-count="3" data-decimals="0">0</span>
+                            <span class="about-stat-label">Certificates</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-value" data-count="8.8" data-decimals="1">0.0</span>
+                            <span class="about-stat-label">CGPA / 10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience and Education -->
+        <section id="experience" class="experience section-padding reveal">
+            <div class="section-title right">
+                <div class="line"></div>
+                <h2>Experience and Education <span class="neon-text">.02</span></h2>
+            </div>
+
+            <div class="experience-timeline" aria-label="Experience and education timeline">
+                <article class="timeline-item">
+                    <div class="timeline-card">
+                        <p class="timeline-date">16 Jun 2025 - 26 Jul 2025</p>
+                        <h3>Data Science and Machine Learning Training</h3>
+                        <p class="timeline-organization">IKIGAI Lab Pvt Ltd (in collaboration with IITM)</p>
+                        <details class="experience-details">
+                            <summary>View details</summary>
+                            <ul>
+                                <li>Built the COVID-19 trends and prediction project using EDA, Matplotlib dashboards, Power BI visualizations, Linear Regression forecasting, and clustering.</li>
+                                <li>Learned data science and ML workflows covering exploration, feature engineering, modeling, and interpretation.</li>
+                                <li>Strengthened Python-based analysis and dashboard storytelling for data-driven decision making.</li>
+                            </ul>
+                        </details>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-card">
+                        <p class="timeline-date">2023 - 2026</p>
+                        <h3>Bachelor of Computer Applications (BCA)</h3>
+                        <p class="timeline-organization">Guru Gobind Singh Indraprastha University</p>
+                        <p class="timeline-result">CGPA: 8.8/10</p>
+                    </div>                </article>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills section-padding reveal">
+            <div class="section-title right">
+                <div class="line"></div>
+                <h2>Skills <span class="neon-text">.03</span></h2>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><button type="button" class="skill-category-toggle" aria-expanded="false"
+                        aria-controls="skills-languages">Core Languages</button></h3>
+                    <div class="skill-items" id="skills-languages">
+                        <div class="skill-item">
+                            <i class="fa-brands fa-python skill-icon"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fa-solid fa-c skill-icon"></i>
+                            <span>C/C++</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fa-brands fa-java skill-icon"></i>
+                            <span>Java</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fa-brands fa-php skill-icon"></i>
+                            <span>PHP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><button type="button" class="skill-category-toggle" aria-expanded="false"
+                        aria-controls="skills-data-science">Data Science & ML</button></h3>
+                    <div class="skill-items" id="skills-data-science">
+                        <div class="skill-item">
+                            <i class="fa-solid fa-table skill-icon"></i>
+                            <span>Pandas</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fa-solid fa-chart-pie skill-icon"></i>
+                            <span>NumPy</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fa-solid fa-brain skill-icon"></i>
+                            <span>Scikit-learn</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fa-solid fa-chart-line skill-icon"></i>
+                            <span>Data Viz</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><button type="button" class="skill-category-toggle" aria-expanded="false"
+                        aria-controls="skills-web">Web Development</button></h3>
+                    <div class="skill-items" id="skills-web">
+                        <div class="skill-item">
+                            <i class="fa-brands fa-html5 skill-icon"></i>
+                            <span>HTML5/CSS3</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fa-brands fa-js skill-icon"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fa-brands fa-css3-alt skill-icon"></i>
+                            <span>Tailwind</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fa-solid fa-database skill-icon"></i>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><button type="button" class="skill-category-toggle" aria-expanded="false"
+                        aria-controls="skills-tools">Tools & Platforms</button></h3>
+                    <div class="skill-items" id="skills-tools">
+                        <div class="skill-item">
+                            <i class="fa-brands fa-git-alt skill-icon"></i>
+                            <span>Git/GitHub</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fa-solid fa-chart-column skill-icon"></i>
+                            <span>PowerBI</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fa-solid fa-book skill-icon"></i>
+                            <span>Jupyter</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fa-solid fa-code skill-icon"></i>
+                            <span>VS Code</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects section-padding reveal">
+            <div class="section-title">
+                <h2><span class="neon-text">04.</span> Featured Projects</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="github-activity" id="github-activity" aria-label="GitHub activity" aria-busy="true">
+                <div class="github-activity-stats" aria-label="GitHub profile statistics">
+                    <div class="github-stat github-skeleton" data-github-stat="repositories">
+                        <span class="github-stat-value"></span>
+                        <span class="github-stat-label">Public repositories</span>
+                    </div>
+                    <div class="github-stat github-skeleton" data-github-stat="followers">
+                        <span class="github-stat-value"></span>
+                        <span class="github-stat-label">Followers</span>
+                    </div>
+                </div>
+                <div class="github-repositories" aria-label="Recently updated repositories">
+                    <div class="github-repo github-skeleton"></div>
+                    <div class="github-repo github-skeleton"></div>
+                    <div class="github-repo github-skeleton"></div>
+                </div>
+            </div>
+
+            <div class="project-filters" role="group" aria-label="Filter projects" hidden>
+                <button type="button" class="project-filter active" data-project-filter="all" aria-pressed="true">All</button>
+                <button type="button" class="project-filter" data-project-filter="web" aria-pressed="false">Web</button>
+                <button type="button" class="project-filter" data-project-filter="data-science" aria-pressed="false">Data Science</button>
+            </div>
+            <div class="projects-grid" id="project-grid" data-dynamic-projects hidden aria-live="polite"></div>
+            <div class="carousel-dots project-carousel-dots" hidden aria-label="Choose a project"></div>
+
+            <noscript>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <article class="project-card tilt-card">
+                    <div class="project-image">
+                        <picture>
+                            <source srcset="assets/images/project-data-cleaning.webp" type="image/webp">
+                            <img src="assets/images/project-data-cleaning.jpeg"
+                                alt="Data cleaning with MySQL project preview" width="800" height="533"
+                                loading="lazy" decoding="async">
+                        </picture>
+                        <div class="project-overlay">
+                            <a href="https://github.com/Godspeed743/Data-Cleaning-with-MySQL" class="project-link"
+                                aria-label="GitHub repository for Data Cleaning with MySQL" target="_blank"
+                                rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Data Cleaning with MySQL</h3>
+                        <p class="project-desc">This project involves cleaning and transforming raw CSV data using MySQL
+                            Workbench to make it structured and analysis-ready. It includes removing duplicates,
+                            handling null values, standardizing data, and eliminating unnecessary columns.</p>
+                        <div class="project-tech">
+                            <span>MySql Workbench</span>
+                            <span>Data Cleaning</span>
+                            <span>SQl</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card tilt-card">
+                    <div class="project-image">
+                        <picture>
+                            <source srcset="assets/images/project-healthcare-platform.webp" type="image/webp">
+                            <img src="assets/images/project-healthcare-platform.jpeg"
+                                alt="Blinking Stars healthcare platform preview" width="800" height="533"
+                                loading="lazy" decoding="async">
+                        </picture>
+                        <div class="project-overlay">
+                            <a href="https://blinkingstars.in/" class="project-link"
+                                aria-label="Live demo for Blinking Stars (opens in a new tab)" target="_blank"
+                                rel="noopener noreferrer"><i class="fa-solid fa-external-link-alt" aria-hidden="true"></i></a>
+                            <a href="https://github.com/Godspeed743/BlinkingStars-Healthcare-Service-Platform"
+                                class="project-link" aria-label="GitHub repository for Blinking Stars"
+                                target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"
+                                    aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Blinking Stars - Healthcare Platform</h3>
+                        <p class="project-desc">A responsive multi-page web application for a therapy center. Integrated
+                            PHP backend, MySQL database, automated inquiries, and WhatsApp API communication.</p>
+                        <div class="project-tech">
+                            <span>HTML/CSS/JS</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>Tailwind</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card tilt-card">
+                    <div class="project-image">
+                        <picture>
+                            <source srcset="assets/images/project-perfume-ecommerce.webp" type="image/webp">
+                            <img src="assets/images/project-perfume-ecommerce.jpeg"
+                                alt="Perfume e-commerce website preview" width="800" height="533"
+                                loading="lazy" decoding="async">
+                        </picture>
+                        <div class="project-overlay">
+                            <a href="https://mqperfume.com/" class="project-link"
+                                aria-label="Live demo for Perfume E-Commerce (opens in a new tab)" target="_blank"
+                                rel="noopener noreferrer"><i class="fa-solid fa-external-link-alt"
+                                    aria-hidden="true"></i></a>
+                            <a href="https://github.com/Godspeed743/Perfume-Eccomerce-Website" class="project-link"
+                                aria-label="GitHub repository for Perfume E-Commerce" target="_blank"
+                                rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Perfume E Commerce Website</h3>
+                        <p class="project-desc">This is a project of a clinet's Brand named Mohammad Al Qamar Perfumes.
+                            It is fully functional e commerce store for buying his perfumes online.
+                        </p>
+                        <div class="project-tech">
+                            <span>HTML/CSS/JS</span>
+                            <span>PHP</span>
+                            <span>WhatsApp API</span>
+                            <span>Tailwind</span>
+                            <span>Google Sheets API</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="project-card tilt-card">
+                    <div class="project-image">
+                        <picture>
+                            <source srcset="assets/images/project-stock-market.webp" type="image/webp">
+                            <img src="assets/images/project-stock-market.jpeg"
+                                alt="Stock market price prediction dashboard preview" width="800" height="533"
+                                loading="lazy" decoding="async">
+                        </picture>
+                        <div class="project-overlay">
+                            <a href="https://github.com/Godspeed743/Stock-Market-Price-Prediction-CAPM-Web-APP"
+                                class="project-link" aria-label="GitHub repository for Stock Market Price Prediction"
+                                target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"
+                                    aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Stock Market Price Prediction - CAPM Web App</h3>
+                        <p class="project-desc">A Streamlit-based financial analytics app that combines stock analysis, technical indicators, and CAPM investment modeling in one dashboard. It provides interactive charts, 30-day ARIMA price forecasts, and expected return/beta calculations from live Yahoo Finance data.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Numpy/Pandas</span>
+                            <span>Streamlit</span>
+                            <span>yfinance</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="carousel-dots" aria-label="Choose a project">
+                <button type="button" class="carousel-dot active" aria-label="Show project 1" aria-current="true"></button>
+                <button type="button" class="carousel-dot" aria-label="Show project 2"></button>
+                <button type="button" class="carousel-dot" aria-label="Show project 3"></button>
+                <button type="button" class="carousel-dot" aria-label="Show project 4"></button>
+            </div>
+            </noscript>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="certifications section-padding reveal">
+            <div class="section-title right">
+                <div class="line"></div>
+                <h2>Certifications <span class="neon-text">.05</span></h2>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Certification 1 -->
+                <article class="project-card tilt-card">
+                    <div class="project-image">
+                        <picture>
+                            <source srcset="assets/images/cert-excel.webp" type="image/webp">
+                            <img src="assets/images/cert-excel.jpeg"
+                                alt="Microsoft Office Specialist Excel 2019 Associate certificate"
+                                width="800" height="618" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Microsoft Office Specialist – Excel 2019 Associate</h3>
+                        <p class="project-desc">Certified in advanced Excel skills including data analysis, formulas,
+                            functions, and data visualization. Demonstrates proficiency in managing and organizing data
+                            efficiently for real-world business tasks.</p>
+                        <div class="project-tech">
+                            <span>Microsoft</span>
+                            <span>2023</span>
+                        </div>
+                        <button type="button" class="btn certificate-view"
+                            data-certificate-src="assets/images/cert-excel.webp"
+                            data-certificate-alt="Microsoft Office Specialist Excel 2019 Associate certificate"
+                            data-certificate-width="800" data-certificate-height="618">
+                            View certificate
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Certification 2 -->
+                <article class="project-card tilt-card">
+                    <div class="project-image">
+                        <picture>
+                            <source srcset="assets/images/cert-ibm.webp" type="image/webp">
+                            <img src="assets/images/cert-ibm.jpeg" alt="IBM Python programming certification"
+                                width="800" height="618" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">IBM Python Certification (IBMCE – Python)</h3>
+                        <p class="project-desc">Completed a Python programming course covering core concepts like data
+                            structures, logic building, and problem-solving. Validates the ability to write efficient
+                            code and build a strong foundation in programming.</p>
+                        <div class="project-tech">
+                            <span>IBM</span>
+                            <span>2023</span>
+                        </div>
+                        <button type="button" class="btn certificate-view"
+                            data-certificate-src="assets/images/cert-ibm.webp"
+                            data-certificate-alt="IBM Python programming certification"
+                            data-certificate-width="800" data-certificate-height="618">
+                            View certificate
+                        </button>
+                    </div>
+                </article>
+                <!-- Certification 3 -->
+                <article class="project-card tilt-card">
+                    <div class="project-image">
+                        <picture>
+                            <source srcset="assets/images/cert-iaci.webp" type="image/webp">
+                            <img src="assets/images/cert-iaci.jpeg" alt="IACI software development certification"
+                                width="800" height="1148" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Certification in Software Development – IACI</h3>
+                        <p class="project-desc">Completed a comprehensive software development program covering
+                            programming fundamentals, application development, and problem-solving techniques. Achieved
+                            an “A” grade, demonstrating strong technical skills and practical understanding of
+                            development concepts.</p>
+                        <div class="project-tech">
+                            <span>IACI</span>
+                            <span>2023</span>
+                        </div>
+                        <button type="button" class="btn certificate-view"
+                            data-certificate-src="assets/images/cert-iaci.webp"
+                            data-certificate-alt="IACI software development certification"
+                            data-certificate-width="800" data-certificate-height="1148">
+                            View certificate
+                        </button>
+                    </div>
+                </article>
+                <!-- Enable the two placeholder certificate cards here once image assets are available. -->
+                <article class="project-card tilt-card certificate-placeholder" hidden>
+                    <div class="certificate-placeholder-image" aria-hidden="true">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Certificate image pending</h3>
+                        <p class="project-desc">Certificate image coming soon</p>
+                        <div class="project-tech"><span>Pending upload</span></div>
+                    </div>
+                </article>
+                <article class="project-card tilt-card certificate-placeholder" hidden>
+                    <div class="certificate-placeholder-image" aria-hidden="true">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Certificate image pending</h3>
+                        <p class="project-desc">Certificate image coming soon</p>
+                        <div class="project-tech"><span>Pending upload</span></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services section-padding reveal">
+            <div class="section-title">
+                <h2><span class="neon-text">06.</span> Services</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3>Data Science & Analytics</h3>
+                    <p>Transforming raw data into actionable insights through exploratory data analysis, visualization,
+                        and dashboard creation.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3>Machine Learning</h3>
+                    <p>Building predictive models using Scikit-learn, implementing linear regression, and feature
+                        engineering for better accuracy.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3>Full-Stack Development</h3>
+                    <p>Developing responsive, performant web applications using HTML, CSS, JavaScript, PHP, and MySQL
+                        with modern UI/UX.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section-padding reveal">
+            <div class="section-title right">
+                <div class="line"></div>
+                <h2>Get In Touch <span class="neon-text">.07</span></h2>
+            </div>
+
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Let's build something <span class="neon-text">amazing</span> together.</h3>
+                    <p>I'm currently looking for new opportunities. Whether you have a question, a project idea, or just
+                        want to say hi, I'll try my best to get back to you!</p>
+
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <a class="contact-action" href="mailto:mohdhammad743@gmail.com">mohdhammad743@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <a class="contact-action" href="tel:+917703823294">+91 7703823294</a>
+                        </li>
+                        <li>
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <a class="contact-action" href="https://wa.me/917703823294"
+                                target="_blank" rel="noopener noreferrer">WhatsApp me</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span class="contact-action">Delhi, India</span>
+                        </li>
+                    </ul>
+
+                    <div class="copy-email">
+                        <button type="button" class="contact-action copy-email-btn"
+                            data-copy-email="mohdhammad743@gmail.com">
+                            <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                            <span>Copy email</span>
+                        </button>
+                        <span id="copy-email-status" class="copy-email-status" aria-live="polite"></span>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/mohammad-hammad-27a1652a5" class="social-icon"
+                            aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://github.com/Godspeed743" class="social-icon" aria-label="GitHub"
+                            target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <form id="contact-form" action="contact.php" method="POST" class="contact-form" novalidate>
+                    <div class="honeypot" aria-hidden="true">
+                        <label for="website">Leave this field empty</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="name" name="name" required placeholder=" "
+                            autocomplete="name" aria-describedby="name-error">
+                        <label for="name">Your Name</label>
+                        <div class="line-effect"></div>
+                        <span class="field-error" id="name-error" aria-live="polite" aria-atomic="true"></span>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" name="email" required placeholder=" "
+                            autocomplete="email" inputmode="email" aria-describedby="email-error">
+                        <label for="email">Your Email</label>
+                        <div class="line-effect"></div>
+                        <span class="field-error" id="email-error" aria-live="polite" aria-atomic="true"></span>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="subject" name="subject" required placeholder=" "
+                            aria-describedby="subject-error">
+                        <label for="subject">Subject</label>
+                        <div class="line-effect"></div>
+                        <span class="field-error" id="subject-error" aria-live="polite" aria-atomic="true"></span>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" name="message" required placeholder=" " maxlength="1000"
+                            enterkeyhint="send" aria-describedby="message-error message-count"></textarea>
+                        <label for="message">Your Message</label>
+                        <div class="line-effect"></div>
+                        <span class="field-error" id="message-error" aria-live="polite" aria-atomic="true"></span>
+                        <span class="message-count" id="message-count">0 / 1000</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <span class="submit-spinner" aria-hidden="true"></span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                    <div id="form-status" class="form-status" aria-live="polite"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div class="project-detail-backdrop" id="project-detail-backdrop"></div>
+    <section class="project-detail-modal" id="project-detail-modal" role="dialog" aria-modal="true"
+        aria-labelledby="project-detail-title" aria-hidden="true" inert tabindex="-1">
+        <button type="button" class="project-detail-close" aria-label="Close project details">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <div class="project-detail-content" id="project-detail-content"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer role="contentinfo" aria-label="Site footer">
+        <div class="footer-content">
+            <a href="#home" class="logo">Mohammad Hammad</a>
+            <p>Designed & Built by Mohammad Hammad &copy; <span id="year"></span></p>
+            <a href="#home" class="back-to-top" aria-label="Back to Top" aria-hidden="true" tabindex="-1">
+                <i class="fa-solid fa-chevron-up"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-container">
+        <!-- Floating Chat Icon -->
+        <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Open Chat"
+            aria-expanded="false" aria-controls="chatbot-modal">
+            <i class="fa-solid fa-message"></i>
+            <span class="chatbot-badge" aria-hidden="true">1</span>
+        </button>
+
+        <!-- Chat Modal -->
+        <div class="chatbot-modal" id="chatbot-modal" role="dialog" aria-modal="true"
+            aria-label="Portfolio chat assistant" aria-hidden="true" tabindex="-1" inert>
+            <div class="chatbot-drag-handle" aria-hidden="true"><span></span></div>
+            <div class="chatbot-header">
+                <div>
+                <h2>AI Assistant</h2>
+                    <p>Ask me about Mohammad</p>
+                </div>
+                <button class="chatbot-clear" id="chatbot-clear" type="button">Clear chat</button>
+                <button class="chatbot-close" id="chatbot-close" aria-label="Close Chat" type="button">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message chatbot-welcome">
+                    <div class="message-content">
+                        <p>Hi! I'm Mohammad's portfolio assistant. Ask about projects, skills, experience, or how to get in touch.</p>
+                    </div>
+                </div>
+                <div class="chatbot-suggestions" role="group" aria-label="Suggested questions">
+                    <button type="button" class="chatbot-suggestion">Projects</button>
+                    <button type="button" class="chatbot-suggestion">Skills</button>
+                    <button type="button" class="chatbot-suggestion">Experience</button>
+                    <button type="button" class="chatbot-suggestion">Hire me</button>
+                    <button type="button" class="chatbot-suggestion">Contact</button>
+                </div>
+            </div>
+
+            <div class="chatbot-input-area">
+                <input
+                    type="text"
+                    id="chatbot-input"
+                    class="chatbot-input"
+                    placeholder="Ask me something..."
+                    autocomplete="off" aria-label="Message"
+                >
+                <button type="button" class="chatbot-send" id="chatbot-send" aria-label="Send Message">
+                    <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Backdrop -->
+        <div class="chatbot-backdrop" id="chatbot-backdrop"></div>
+    </div>
+
+    <div class="certificate-lightbox" id="certificate-lightbox" role="dialog" aria-modal="true"
+        aria-label="Certificate preview" aria-hidden="true" tabindex="-1">
+        <button type="button" class="certificate-lightbox-close" aria-label="Close certificate preview">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <img class="certificate-lightbox-image" alt="" width="800" height="618" decoding="async">
+    </div>
+
+    <div id="contact-toast" class="contact-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Scripts -->
+    <script src="js/theme.js"></script>
+    <script src="js/chatbot-data.js"></script>
+    <script src="js/github-activity.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
