@@ -538,6 +538,7 @@ ul {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    transform-origin: 50% 50%;
     transform: translate(-50%, -50%) scale(0.35);
     filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.5));
     transition: transform 0.7s cubic-bezier(0.18, 1.5, 0.25, 1), opacity 0.35s ease, visibility 0.35s ease, box-shadow 0.2s ease, background-color 0.2s ease;
@@ -1131,6 +1132,16 @@ html.light-theme .hero-buttons .btn-secondary:focus-visible {
 .terminal-body .key { color: #79c0ff; }
 .terminal-body .string { color: #a5d6ff; }
 
+@media (max-width: 599px) {
+    .terminal-body pre {
+        white-space: pre-wrap;
+        word-break: break-word;
+        width: auto;
+        min-width: auto;
+        max-width: 100%;
+    }
+}
+
 /* Skills Section */
 .skills-grid {
     display: grid;
@@ -1204,7 +1215,7 @@ html.light-theme .hero-buttons .btn-secondary:focus-visible {
     #certifications .projects-grid .project-card:last-child:nth-child(odd) {
         grid-column: 1 / -1;
         justify-self: center;
-        width: min(100%, 50%);
+        width: calc(50% - (clamp(16px, 3vw, 40px) / 2));
     }
 }
 
@@ -1236,6 +1247,14 @@ html.light-theme .hero-buttons .btn-secondary:focus-visible {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
+}
+
+#certifications .project-image {
+    background: var(--bg-secondary);
+}
+
+#certifications .project-image img {
+    object-fit: contain;
 }
 
 .project-card:hover .project-image img {
@@ -1429,6 +1448,13 @@ html.light-theme .hero-buttons .btn-secondary:focus-visible {
     gap: clamp(10px, 2vw, 20px);
     margin-bottom: 20px;
     font-size: 1.1rem;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 479px) {
+    .contact-details li {
+        font-size: 1rem;
+    }
 }
 
 .contact-details i {
@@ -1764,6 +1790,14 @@ footer {
     .contact-wrapper {
         grid-template-columns: minmax(0, 1fr);
         padding: 30px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+    .contact-details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: clamp(10px, 2vw, 20px) clamp(16px, 4vw, 30px);
     }
 }
 
@@ -2411,54 +2445,80 @@ footer {
 
 @media (min-width: 768px) {
     .experience-timeline {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 28px 32px;
-        padding-left: 26px;
+        grid-template-columns: 1fr 40px 1fr;
+        gap: 28px 0;
+        padding-left: 0;
         max-width: 980px;
     }
 
     .experience-timeline::before,
     .experience-timeline::after {
-        left: 8px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 2px;
+        border-radius: 2px;
+        transform: translateX(-50%);
+    }
+
+    .experience-timeline::after {
+        transform: translateX(-50%) scaleY(var(--timeline-progress));
+        transform-origin: top;
+        will-change: transform;
     }
 
     .timeline-item {
         position: relative;
         width: 100%;
+    }
+
+    .timeline-item:nth-child(1) {
         grid-column: 1;
-        grid-row: auto;
+        grid-row: 1;
     }
 
-    .timeline-item:nth-child(odd) {
-        margin-left: 0;
-        transform: translateX(0);
+    .timeline-item:nth-child(2) {
+        grid-column: 3;
+        grid-row: 2;
     }
 
-    .timeline-item:nth-child(even) {
-        margin-left: clamp(28px, 5vw, 80px);
-        transform: translateY(18px);
+    .timeline-item:nth-child(3) {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .timeline-item:nth-child(4) {
+        grid-column: 3;
+        grid-row: 4;
+    }
+
+    .timeline-item:nth-child(5) {
+        grid-column: 1;
+        grid-row: 5;
+    }
+
+    .timeline-item:nth-child(6) {
+        grid-column: 3;
+        grid-row: 6;
     }
 
     .timeline-item::before {
-        left: -18px;
-        top: 26px;
+        top: 0;
     }
 
     .timeline-item:nth-child(odd)::before {
-        left: -18px;
+        right: -28px;
+        left: auto;
     }
 
     .timeline-item:nth-child(even)::before {
-        left: -18px;
+        left: -28px;
+        right: auto;
     }
 
     .timeline-item .timeline-card {
         max-width: min(100%, 420px);
-    }
-
-    .timeline-item:nth-child(even) .timeline-card {
-        margin-left: 0;
     }
 }
 
@@ -2573,9 +2633,7 @@ a.github-repo:focus-visible {
     display: grid;
     aspect-ratio: 16 / 10;
     place-items: center;
-    background:
-        linear-gradient(135deg, rgba(188, 19, 254, 0.18), rgba(0, 243, 255, 0.09)),
-        var(--bg-secondary);
+    background: var(--bg-secondary);
     color: var(--neon-cyan);
     font-size: clamp(2.5rem, 8vw, 4rem);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -2612,7 +2670,7 @@ body.light-theme .github-skeleton::after {
     #certifications .projects-grid .project-card:last-child:nth-child(odd) {
         grid-column: 1 / -1;
         justify-self: center;
-        width: min(100%, 50%);
+        width: calc(50% - (clamp(16px, 3vw, 40px) / 2));
     }
 }
 
@@ -3088,7 +3146,7 @@ body.light-theme .github-skeleton::after {
     display: grid;
     place-items: center;
     min-height: 180px;
-    background: linear-gradient(135deg, rgba(124, 58, 237, 0.28), rgba(0, 243, 255, 0.08));
+    background: var(--bg-secondary);
     color: var(--neon-cyan);
 }
 
@@ -3755,6 +3813,7 @@ body.light-theme .terminal-body .string {
 
 .skill-category-toggle {
     width: 100%;
+    min-height: 48px;
     padding: 0;
     border: 0;
     background: transparent;

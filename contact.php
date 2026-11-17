@@ -2,6 +2,9 @@
 // CONFIG: Set the email address that receives portfolio contact submissions.
 $recipient_email = 'mohdhammad743@gmail.com';
 
+// CONFIG: Sender address. MUST be an address on your own domain (change this before deploying).
+$from_email = 'no-reply@yourdomain.com';
+
 // Set headers to allow AJAX requests and return JSON
 header('Content-Type: application/json');
 
@@ -43,8 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email_content .= "Message:\n$message\n";
 
     // Build the email headers
-    $email_headers = "From: $name <$email>\r\n";
-    $email_headers .= "Reply-To: $email\r\n";
+    $email_headers = "From: Portfolio Contact <$from_email>\r\n";
+    $email_headers .= "Reply-To: $name <$email>\r\n";
     $email_headers .= "X-Mailer: PHP/" . phpversion();
 
     // 4. Send Email

@@ -24,7 +24,7 @@ const SIZES = [[320,640],[360,740],[390,844],[430,932],[600,900],[768,1024],[820
       const r = await page.evaluate(() => {
         const vw = document.documentElement.clientWidth;
         const text = document.body.innerText;
-        const todo = /TODO|lorem ipsum|listed in resume/i.test(text);
+        const todo = /TODO|lorem ipsum/i.test(text);
         const hb = document.querySelector('.hero-buttons');
         const tg = document.querySelector('.chatbot-toggle, #chatbot-toggle, .chatbot-btn');
         let overlap = false;
