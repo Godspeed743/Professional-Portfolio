@@ -40,8 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chipTimer: null,
         driftAngle: 0,
         isDriftPaused: false,
-        hasInteracted: false,
-        lastScrollY: 0
+        hasInteracted: false
     };
 
     const showChip = (label) => {
@@ -189,27 +188,20 @@ document.addEventListener('DOMContentLoaded', () => {
             : (window.innerWidth <= 767 ? 26 : 32);
 
         const gap = (iconSize / 2) + 14;
-        const ringWidth = Math.min(photoWidth + (gap * 2), Math.max(220, window.innerWidth - 32));
+        const ringWidth = photoWidth + (gap * 2);
         const ringHeight = photoHeight + (gap * 2);
         const ringRadius = borderRadius + gap;
         const totalLength = getRoundedRectLength(ringWidth, ringHeight, ringRadius);
 
-        orbitContainer.style.width = `${ringWidth}px`;
-        orbitContainer.style.height = `${ringHeight}px`;
-        orbitContainer.style.left = '50%';
-        orbitContainer.style.top = '50%';
-
         skillButtons.forEach((button, index) => {
             const distance = ((index / skillButtons.length) * totalLength) + (heroOrbitState.driftAngle * 24);
             const orbitPoint = getPointOnRoundedRect(distance, ringWidth, ringHeight, ringRadius);
+            const x = (photoWidth / 2) + orbitPoint.x - (iconSize / 2);
+            const y = (photoHeight / 2) + orbitPoint.y - (iconSize / 2);
             button.style.width = `${iconSize}px`;
             button.style.height = `${iconSize}px`;
             button.style.fontSize = `${Math.max(14, iconSize * 0.56)}px`;
-            button.style.left = '50%';
-            button.style.top = '50%';
-            button.style.transform = heroOrbitState.expanded
-                ? `translate(-50%, -50%) translate(${orbitPoint.x}px, ${orbitPoint.y}px)`
-                : 'translate(-50%, -50%) scale(0.35)';
+            button.style.transform = `translate(${x}px, ${y}px)`;
             button.style.opacity = heroOrbitState.expanded ? '1' : '0';
             button.style.visibility = heroOrbitState.expanded ? 'visible' : 'hidden';
             button.style.pointerEvents = heroOrbitState.expanded ? 'auto' : 'none';
@@ -297,10 +289,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         if (!heroOrbitState.expanded || hasFinePointer.matches) return;
-        if (Math.abs(window.scrollY - heroOrbitState.lastScrollY) > 12) {
+        const photoRect = heroPhoto?.getBoundingClientRect();
+        if (photoRect && (photoRect.bottom <= 0 || photoRect.top >= window.innerHeight)) {
             setExpanded(false);
         }
-        heroOrbitState.lastScrollY = window.scrollY;
     }, { passive: true });
 
     const heroObserver = new IntersectionObserver((entries) => {
@@ -321,9 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const animateOrbitDrift = () => {
         if (heroOrbitState.expanded && !heroReducedMotion.matches && hasCoarsePointer.matches && !heroOrbitState.isDriftPaused && !document.hidden) {
             heroOrbitState.driftAngle += 0.0055;
-            orbitContainer.style.transform = `rotate(${heroOrbitState.driftAngle}rad)`;
-        } else {
-            orbitContainer.style.transform = 'rotate(0deg)';
+            positionOrbit();
         }
         requestAnimationFrame(animateOrbitDrift);
     };
@@ -335,12 +325,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (heroPhoto) {
         resizeObserver.observe(heroPhoto);
+        const heroPhotoImage = heroPhoto.querySelector('img');
+        heroPhotoImage?.addEventListener('load', positionOrbit);
     }
 
     window.addEventListener('resize', () => {
         positionOrbit();
         updateHint();
     });
+
+    if (document.fonts?.ready) {
+        document.fonts.ready.then(positionOrbit);
+    }
 
     if (window.location.hostname === 'localhost' || window.location.search.includes('debug')) {
         const debugCheck = () => {

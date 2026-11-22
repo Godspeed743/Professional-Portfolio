@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammad Hammad | Portfolio</title>
-    <meta name="theme-color" content="#0a0a0a" id="theme-color-meta">
+    <meta name="theme-color" content="#000000" id="theme-color-meta">
     <script>
         (() => {
             let theme;
@@ -20,7 +20,7 @@
             document.documentElement.classList.toggle('light-theme', theme === 'light');
             document.documentElement.dataset.theme = theme;
             document.getElementById('theme-color-meta').content =
-                theme === 'light' ? '#f5f7fb' : '#0a0a0a';
+                theme === 'light' ? '#ffffff' : '#000000';
         })();
     </script>
     <meta name="description"
@@ -134,8 +134,8 @@
                             <img src="assets/images/hero-portrait.jpeg" alt="Mohammad Hammad" width="800" height="1067"
                                 fetchpriority="high" decoding="async">
                         </picture>
+                        <div class="orbit-icons" id="hero-orbit-icons" aria-hidden="true"></div>
                     </div>
-                    <div class="orbit-icons" id="hero-orbit-icons" aria-hidden="true"></div>
                     <div class="hero-tech-chip" aria-live="polite" aria-atomic="true"></div>
                     <div class="hero-touch-hint" aria-live="polite">Tap to explore my stack</div>
                 </div>

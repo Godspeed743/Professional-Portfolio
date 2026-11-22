@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.dataset.theme = theme;
         document.body.classList.toggle('light-theme', isLight);
         document.body.classList.toggle('dark-theme', !isLight);
-        themeColorMeta?.setAttribute('content', isLight ? '#f5f7fb' : '#0a0a0a');
+        themeColorMeta?.setAttribute('content', isLight ? '#ffffff' : '#000000');
         if (themeToggle) {
             themeToggle.setAttribute('aria-pressed', String(isLight));
             themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
