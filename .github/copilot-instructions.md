@@ -3,9 +3,9 @@
 ## Project overview
 - This is a static single-page portfolio for Mohammad Hammad, focused on Data Science and Full-Stack development.
 - Keep the site as a vanilla HTML/CSS/JavaScript project with no frameworks, bundlers, or build step.
-- Use PHP only for the contact form workflow in `contact.php`.
+- Keep the site static; the contact form posts to Web3Forms (https://api.web3forms.com/submit) using the public access key in a hidden form field.
 - Maintain the current structure and section order in `index.html`.
-- The project assets include the root HTML, CSS, JavaScript, and PHP files, editable chatbot and project data under `js/`, and optimized images under `assets/`.
+- The project assets include the root HTML, CSS, and JavaScript files, editable chatbot and project data under `js/`, and optimized images under `assets/`.
 
 ## Core implementation rules
 - Keep the dark neon aesthetic and reuse the CSS variables defined in `:root` (`--neon-cyan`, `--neon-purple`, `--bg-main`, and related tokens). Do not hardcode color values when a theme variable already exists.

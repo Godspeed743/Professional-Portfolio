@@ -38,8 +38,8 @@ window.chatbotKnowledgeBase = {
             responses: ["The Stock Market Price Prediction / CAPM web app uses Python, Streamlit, Pandas, NumPy, and Yahoo Finance data for stock analysis, technical indicators, ARIMA forecasts, and CAPM calculations."]
         },
         skills: {
-            keywords: ['skills', 'skill', 'tech stack', 'technologies', 'tools', 'languages', 'proficient'],
-            responses: ["The portfolio lists Python, C/C++, Java, PHP, Pandas, NumPy, Scikit-learn, data visualization, HTML, CSS, JavaScript, Tailwind, MySQL, Git/GitHub, Power BI, Jupyter, and VS Code."]
+            keywords: ['skills', 'skill', 'tech stack', 'technologies', 'tools', 'languages', 'proficient', 'marketing', 'seo', 'video editing', 'video', 'editing', 'vibe coding', 'vibe', 'app development', 'software development'],
+            responses: ["Mohammad's skills section covers: Core Languages (Python, C/C++, Java, PHP); Data Science & ML (Pandas, NumPy, Scikit-learn, data visualization); Web Development (HTML/CSS, JavaScript, Tailwind, MySQL); Software Development (algorithms, OOP, REST APIs, debugging, Docker, Linux); App Development (Flutter, React Native, Kotlin, Swift, Firebase, Figma); Tools & Platforms (Git/GitHub, Power BI, Jupyter, VS Code, Excel, Streamlit); Vibe Coding (Cursor, Claude Code, Copilot, prompt design, AI agents); Digital Marketing (SEO, analytics, Google and Meta Ads, email, content); and Video Editing (Premiere Pro, DaVinci Resolve, After Effects, CapCut, audio mixing, color grading)."]
         },
         certifications: {
             keywords: ['certification', 'certifications', 'certificate', 'certificates', 'credential'],

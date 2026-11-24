@@ -1161,7 +1161,7 @@ ul {
 /* Skills Section */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: clamp(16px, 3vw, 40px);
 }
 
@@ -2885,7 +2885,7 @@ a.github-repo:focus-visible {
 
     @media (min-width: 1024px) {
         .skills-grid {
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
         #projects .projects-grid {
@@ -3865,6 +3865,17 @@ body.light-theme .glow-sphere {
 .skills-grid.skills-visible .skill-item:nth-child(2) { animation-delay: 50ms; }
 .skills-grid.skills-visible .skill-item:nth-child(3) { animation-delay: 100ms; }
 .skills-grid.skills-visible .skill-item:nth-child(4) { animation-delay: 150ms; }
+.skills-grid.skills-visible .skill-item:nth-child(5) { animation-delay: 200ms; }
+.skills-grid.skills-visible .skill-item:nth-child(6) { animation-delay: 250ms; }
+
+/* Nine cards: on 2-column layouts the last odd card is centred instead of left-aligned */
+@media (min-width: 640px) and (max-width: 1023px) {
+    .skills-grid > .skill-category:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - clamp(8px, 1.5vw, 20px));
+    }
+}
 
 @keyframes skill-item-enter {
     to { opacity: 1; transform: translateY(0); }

@@ -540,7 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.15,
+        threshold: 0.05,
         rootMargin: "0px 0px -50px 0px"
     });
 
@@ -606,7 +606,7 @@ document.addEventListener('DOMContentLoaded', () => {
             entry.target.classList.add('skills-visible');
             observer.unobserve(entry.target);
         });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.05 });
     if (skillsGrid) {
         skillsGrid.classList.add('skills-animated');
         skillStaggerObserver.observe(skillsGrid);
@@ -832,14 +832,20 @@ document.addEventListener('DOMContentLoaded', () => {
             formStatus.className = 'form-status';
 
             try {
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: new FormData(contactForm)
-                });
-                const data = await response.json().catch(() => null);
-
-                if (!response.ok || data?.status !== 'success') {
-                    throw new Error(data?.message || 'Unable to send your message. Please try again.');
+                const formData = new FormData(contactForm);
+                const isBot = formData.has('botcheck');
+                formData.delete('botcheck');
+                if (!isBot) {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify(Object.fromEntries(formData.entries()))
+                    });
+                    const data = await response.json().catch(() => null);
+                    if (!response.ok || data?.success !== true) {
+                        console.error('Form service rejected the message:', response.status, data?.message);
+                        throw new Error('Unable to send your message. Please try again or email me directly at mohdhammad743@gmail.com.');
+                    }
                 }
 
                 contactForm.reset();
@@ -854,7 +860,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.getElementById(`${field.id}-error`).textContent = '';
                 });
                 updateMessageCount();
-                showToast(data.message, 'success');
+                showToast('Thank you! Your message has been sent.', 'success');
             } catch (error) {
                 console.error('Contact form submission failed:', error);
                 formStatus.textContent = error instanceof TypeError
