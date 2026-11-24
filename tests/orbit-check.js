@@ -3,7 +3,7 @@
 // Needs: playwright (npm i -D playwright) and a local server running.
 // Run with OFFLINE=1 only if you have no internet (gives empty icons a size).
 // If the page uses different class names, edit ONLY the SEL object below (not the website).
-const { chromium } = require('playwright');
+import { chromium } from '@playwright/test';
 const BASE = process.argv[2] || 'http://localhost:8080';
 const SEL = {
   frame: ['.hero-photo', '.hero-image-container'],   // the photo frame (first match wins)

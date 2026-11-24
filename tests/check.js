@@ -1,6 +1,6 @@
 // Usage: node tests/check.js http://localhost:8080
 // Needs: playwright installed (npm i -D playwright) and a local server running.
-const { chromium } = require('playwright');
+import { chromium } from '@playwright/test';
 const BASE = process.argv[2] || 'http://localhost:8080';
 const SIZES = [[320,640],[360,740],[390,844],[430,932],[600,900],[768,1024],[820,1180],[1024,768],[1280,800],[1440,900],[844,390]];
 (async () => {

@@ -4,5 +4,3 @@ archive/
 node_modules/
 README.md
 CHANGELOG.md
-package.json
-package-lock.json

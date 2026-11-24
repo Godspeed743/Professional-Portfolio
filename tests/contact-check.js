@@ -1,7 +1,7 @@
 // Usage: node tests/contact-check.js http://localhost:8080
 // Tests the contact form against a FAKE Web3Forms server (no real email is sent, no internet needed for the form).
 // Needs: playwright (npm i -D playwright) and a local server running.
-const { chromium } = require('playwright');
+import { chromium } from '@playwright/test';
 const BASE = process.argv[2] || 'http://localhost:8080';
 const ENDPOINT = 'https://api.web3forms.com/submit';
 const DATA = { name: 'Test Visitor', email: 'visitor@example.com', subject: 'Hello there', message: 'This is a test message from the automated check.' };

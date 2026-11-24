@@ -1,7 +1,7 @@
 // Usage: node tests/skills-check.js http://localhost:8080
 // Verifies the Skills section: 9 categories, markup wiring, icons, layout at every width, mobile accordion, visibility, JSON-LD, chatbot text.
 // Needs: playwright (npm i -D playwright) and a local server running. Font Awesome must load (internet on).
-const { chromium } = require('playwright');
+import { chromium } from '@playwright/test';
 const BASE = process.argv[2] || 'http://localhost:8080';
 const EXPECTED = ['Core Languages', 'Data Science & ML', 'Web Development', 'Software Development', 'App Development', 'Tools & Platforms', 'Vibe Coding', 'Digital Marketing', 'Video Editing'];
 const SIZES = [[320, 640], [360, 740], [390, 844], [430, 932], [600, 900], [639, 900], [640, 900], [768, 1024], [820, 1180], [1023, 768], [1024, 768], [1280, 800], [1440, 900], [844, 390]];
