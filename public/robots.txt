@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
 
-# TODO: Replace the placeholder domain before deployment.
-Sitemap: https://YOUR-DOMAIN.example/sitemap.xml
+Sitemap: https://portfolio-mu-six-gosjyvrdj4.vercel.app/sitemap.xml
 

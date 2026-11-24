@@ -35,7 +35,8 @@ const DATA = { name: 'Test Visitor', email: 'visitor@example.com', subject: 'Hel
       if (s.keyType !== 'hidden') p.push('access_key input must be type=hidden');
       if (s.botType !== 'checkbox') p.push('botcheck checkbox is missing');
       if (s.oldHoney) p.push('old "website" honeypot field is still in the form');
-      const r = await page.request.get(BASE + '/contact.php'); if (r.status() !== 404) p.push(`/contact.php still exists (HTTP ${r.status()}); Vercel would serve its source code`);
+      // 404 (static/dev server) or 403 (Vercel blocks all *.php) are both fine; fail only if the file is served.
+      const r = await page.request.get(BASE + '/contact.php'); const rBody = await r.text(); if (r.status() === 200 || rBody.includes('<?php')) p.push(`/contact.php still exists (HTTP ${r.status()}); Vercel would serve its source code`);
       report(`${tag} wiring`, p); await ctx.close(); }
 
     // ---- 2. success ----

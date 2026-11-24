@@ -22,7 +22,7 @@ Vercel builds the site with `npm run build` and serves `dist/` (see `vercel.json
 
 Before deploying:
 
-1. Replace `https://YOUR-DOMAIN.example/` in the canonical link, Open Graph/Twitter metadata, Person JSON-LD, `sitemap.xml`, and `robots.txt` with the production origin.
+1. The production origin (`https://portfolio-mu-six-gosjyvrdj4.vercel.app/`) is set in the canonical link, Open Graph/Twitter metadata, Person JSON-LD, `sitemap.xml`, and `robots.txt`. Update all of them if the domain changes.
 2. Confirm the Web3Forms public access key in the form's hidden field.
 3. Check that the resume PDF and all image assets are included.
 

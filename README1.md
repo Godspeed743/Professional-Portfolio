@@ -2,7 +2,7 @@
 
 A fast, responsive personal portfolio for **Mohammad Hammad**, a Data Science &amp; Machine Learning enthusiast and Frontend / Full-Stack developer. Built with plain HTML, CSS and JavaScript: no framework and no build step.
 
-**🔗 Live site:** [YOUR-SITE.vercel.app](https://YOUR-SITE.vercel.app)
+**🔗 Live site:** [portfolio-mu-six-gosjyvrdj4.vercel.app](https://portfolio-mu-six-gosjyvrdj4.vercel.app)
 
 <!-- Add a screenshot here once you have one, for example: ![Portfolio preview](docs/preview.png) -->
 
@@ -94,7 +94,7 @@ The access key is meant to be public, so it is safe in the page source.
 2. In Vercel choose **Add New → Project** and import the repository.
 3. Set **Framework Preset** to **Other**. Leave the build command and output directory empty.
 4. Deploy.
-5. Replace `https://YOUR-SITE.vercel.app` (and the older `https://YOUR-DOMAIN.example/` placeholder, if it is still present) in the canonical link, Open Graph / Twitter tags, JSON-LD, `sitemap.xml` and `robots.txt` with your real address.
+5. The live address (`https://portfolio-mu-six-gosjyvrdj4.vercel.app`) is set in the canonical link, Open Graph / Twitter tags, JSON-LD, `sitemap.xml` and `robots.txt`; update all of them if the domain changes.
 
 ## 🧪 Automated checks (optional)
 
