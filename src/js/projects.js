@@ -6,7 +6,7 @@ window.portfolioProjects = [
         longDescription: 'This project prepares raw CSV data for analysis in MySQL Workbench. The workflow removes duplicate records, handles missing values, standardizes inconsistent values, and removes unnecessary columns.',
         tags: ['MySQL Workbench', 'Data Cleaning', 'SQL'],
         category: 'data-science',
-        image: 'assets/images/project-data-cleaning.webp',
+        image: '/assets/images/project-data-cleaning.webp',
         githubUrl: 'https://github.com/Godspeed743/Data-Cleaning-with-MySQL',
         highlights: [
             'Removed duplicate records and handled null values.',
@@ -21,7 +21,7 @@ window.portfolioProjects = [
         longDescription: 'A responsive healthcare services website for a therapy center. The project combines a multi-page frontend with a PHP backend and MySQL database, plus automated inquiries and WhatsApp communication.',
         tags: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Tailwind CSS'],
         category: 'web',
-        image: 'assets/images/project-healthcare-platform.webp',
+        image: '/assets/images/project-healthcare-platform.webp',
         githubUrl: 'https://github.com/Godspeed743/BlinkingStars-Healthcare-Service-Platform',
         liveUrl: 'https://blinkingstars.in/',
         highlights: [
@@ -37,7 +37,7 @@ window.portfolioProjects = [
         longDescription: 'A functional e-commerce website created for Mohammad Al Qamar Perfumes. The storefront supports product browsing and ordering, with WhatsApp order notifications and Google Sheets inventory synchronization.',
         tags: ['HTML', 'CSS', 'JavaScript', 'PHP', 'WhatsApp API', 'Google Sheets'],
         category: 'web',
-        image: 'assets/images/project-perfume-ecommerce.webp',
+        image: '/assets/images/project-perfume-ecommerce.webp',
         githubUrl: 'https://github.com/Godspeed743/Perfume-Eccomerce-Website',
         liveUrl: 'https://mqperfume.com/',
         highlights: [
@@ -53,7 +53,7 @@ window.portfolioProjects = [
         longDescription: 'A Streamlit-based financial analytics app combining stock data, technical indicators, and CAPM investment modeling. It presents interactive charts, 30-day ARIMA price forecasts, and expected return and beta calculations using Yahoo Finance data.',
         tags: ['Python', 'NumPy', 'Pandas', 'Streamlit', 'yfinance', 'ARIMA'],
         category: 'data-science',
-        image: 'assets/images/project-stock-market.webp',
+        image: '/assets/images/project-stock-market.webp',
         githubUrl: 'https://github.com/Godspeed743/Stock-Market-Price-Prediction-CAPM-Web-APP',
         highlights: [
             'Fetches stock data from Yahoo Finance.',

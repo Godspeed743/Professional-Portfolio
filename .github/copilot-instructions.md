@@ -5,7 +5,7 @@
 - Keep the site as a vanilla HTML/CSS/JavaScript project with no frameworks, bundlers, or build step.
 - Keep the site static; the contact form posts to Web3Forms (https://api.web3forms.com/submit) using the public access key in a hidden form field.
 - Maintain the current structure and section order in `index.html`.
-- The project assets include the root HTML, CSS, and JavaScript files, editable chatbot and project data under `js/`, and optimized images under `assets/`.
+- Source lives in `src/` (`style.css`, `main.js` entry, and modules under `src/js/`); static files served at fixed URLs (images, favicon, resume, robots, sitemap) live in `public/`. `index.html` stays at the project root as the Vite entry.
 
 ## Core implementation rules
 - Keep the dark neon aesthetic and reuse the CSS variables defined in `:root` (`--neon-cyan`, `--neon-purple`, `--bg-main`, and related tokens). Do not hardcode color values when a theme variable already exists.
@@ -18,7 +18,7 @@
 - Do not add libraries, frameworks, or CDNs unless explicitly requested. Keep Font Awesome in place if it is already used.
 - Ensure there is no horizontal scroll at any width from 320px upward.
 - Keep the existing dark neon theme consistent across sections, typography, buttons, accents, and surfaces.
-- Keep theme preference handling in `js/theme.js`; use the `body.light-theme` CSS variable overrides and preserve the early anti-flash theme setup in `index.html`.
+- Keep theme preference handling in `src/js/theme.js`; use the `body.light-theme` CSS variable overrides and preserve the early anti-flash theme setup in `index.html`.
 - Keep comments brief and only add them for non-obvious logic.
 
 ## Content and code expectations
@@ -26,9 +26,9 @@
 - Keep the portfolio static and lightweight; avoid unnecessary dependencies or complexity.
 - Maintain semantic HTML structure and accessible behavior.
 - Keep JavaScript plain and focused; do not introduce framework patterns or tooling.
-- Keep chatbot response content and keywords in `js/chatbot-data.js`; do not add résumé claims that are not verified.
-- Keep GitHub activity loading and its session cache in `js/github-activity.js`; it must remain public, token-free, and hidden when the API is unavailable.
-- Keep project content in the `window.portfolioProjects` array in `js/projects.js`; render cards from the data and retain the static `<noscript>` fallback.
+- Keep chatbot response content and keywords in `src/js/chatbot-data.js`; do not add résumé claims that are not verified.
+- Keep GitHub activity loading and its session cache in `src/js/github-activity.js`; it must remain public, token-free, and hidden when the API is unavailable.
+- Keep project content in the `window.portfolioProjects` array in `src/js/projects.js`; render cards from the data and retain the static `<noscript>` fallback.
 - Preserve the current ordering of major sections in `index.html` when making changes.
 - Do not modify unrelated files or introduce unrelated features.
 

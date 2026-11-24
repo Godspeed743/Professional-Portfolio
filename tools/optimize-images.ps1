@@ -3,7 +3,7 @@ $ErrorActionPreference = 'Stop'
 
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $sourceRoot = Join-Path $projectRoot 'assets\original'
-$outputRoot = Join-Path $projectRoot 'assets\images'
+$outputRoot = Join-Path $projectRoot 'public\assets\images'
 New-Item -ItemType Directory -Force -Path $outputRoot | Out-Null
 
 $images = @(
